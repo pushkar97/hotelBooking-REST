@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "e3e874a9-2a11-4416-8b97-a5dadce55411",
+		"name": "hotels",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "user login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user@test.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/login",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "owner login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"owner@test.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/login",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin@test.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/login",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "delete hotel",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/hotels/2",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"hotels",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all hotels",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsIkF1dGhvcml0aWVzIjpbIkFETUlOIl0sImV4cCI6MTYxOTExNzYyOH0.vwjnItRMAVr-UtouuXymhuC_ZTP-vP8JIMmqEYO-hiATkqUaqvzDGRz-MDMhCtB41rrC1GWFav64k4j1ka39cQ",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{todo_bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/hotels?city=Mumbai&rooms=2&date=2021-04-21",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Mumbai"
+						},
+						{
+							"key": "rooms",
+							"value": "2"
+						},
+						{
+							"key": "date",
+							"value": "2021-04-21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add hotel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsIkF1dGhvcml0aWVzIjpbIkFETUlOIl0sImV4cCI6MTYxOTExNzYyOH0.vwjnItRMAVr-UtouuXymhuC_ZTP-vP8JIMmqEYO-hiATkqUaqvzDGRz-MDMhCtB41rrC1GWFav64k4j1ka39cQ",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{todo_bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                \"name\": \"Taj Lands End\",\r\n                \"address\": {\r\n                    \"id\": 1,\r\n                    \"addressLine1\": \"Bandstand\",\r\n                    \"addressLine2\": \"Bandra (w)\",\r\n                    \"city\": \"Mumbai\",\r\n                    \"state\": \"Maharashtra\",\r\n                    \"country\": \"India\",\r\n                    \"zipCode\": 400050\r\n                },\r\n                \"facilities\": [\r\n                    \"AC\",\r\n                    \"WIFI\",\r\n                    \"RESTAURANT\"\r\n                ],\r\n                \"totalRooms\": 500,\r\n                \"travellersPerRoom\": 2\r\n            }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/hotels",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update hotel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvd25lckB0ZXN0LmNvbSIsIkF1dGhvcml0aWVzIjpbIk9XTkVSIl0sImV4cCI6MTYxOTA1NjM3Mn0.B6nqGlHyivY6XQdJxYsWaZASYF44LHbnrv05Arrr4U5rjpzwCdFfar3i_8appl8wk_FpbiFlK-Yga9zIYknCXQ",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{todo_bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Taj Lands End\",\r\n    \"address\": {\r\n        \"addressLine1\": \"Bandra Bandstand\",\r\n        \"addressLine2\": \"Bandra (w)\",\r\n        \"city\": \"Mumbai\",\r\n        \"state\": \"Maharashtra\",\r\n        \"country\": \"India\",\r\n        \"zipCode\": 400050\r\n    },\r\n    \"facilities\": [\r\n        \"AC\",\r\n        \"WIFI\"\r\n    ],\r\n    \"totalRooms\": 200,\r\n    \"travellersPerRoom\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/hotels/5",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"hotels",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book hotel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsIkF1dGhvcml0aWVzIjpbIkFETUlOIl0sImV4cCI6MTYxOTExNzYyOH0.vwjnItRMAVr-UtouuXymhuC_ZTP-vP8JIMmqEYO-hiATkqUaqvzDGRz-MDMhCtB41rrC1GWFav64k4j1ka39cQ",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{todo_bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"checkInDate\": \"2021-04-22\",\r\n    \"checkOutDate\": \"2021-04-24\",\r\n    \"adults\": 2,\r\n    \"children\": 2,\r\n    \"rooms\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}api/hotels/5/book",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"hotels",
+						"5",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rate booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": 8,\r\n    \"comment\": \"Great stay, awesome view\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/6/rate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"6",
+						"rate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all bookings",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQHRlc3QuY29tIiwiQXV0aG9yaXRpZXMiOlsiVVNFUiJdLCJleHAiOjE2MTkwNTE4MzV9.JpaIavUllAQshaOjU8AV3pecELorGfzXOk1scnfLaYhTep1VVJ3AFoR4ESldPkrHR4UumK3ojOZPFRYV-ohqSg",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{todo_bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/bookings",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all reviews",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsIkF1dGhvcml0aWVzIjpbIkFETUlOIl0sImV4cCI6MTYxOTExNzYyOH0.vwjnItRMAVr-UtouuXymhuC_ZTP-vP8JIMmqEYO-hiATkqUaqvzDGRz-MDMhCtB41rrC1GWFav64k4j1ka39cQ",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{todo_bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/reviews",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete booking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyQHRlc3QuY29tIiwiQXV0aG9yaXRpZXMiOlsiVVNFUiJdLCJleHAiOjE2MTkwNTE4MzV9.JpaIavUllAQshaOjU8AV3pecELorGfzXOk1scnfLaYhTep1VVJ3AFoR4ESldPkrHR4UumK3ojOZPFRYV-ohqSg",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{todo_bearer_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/bookings/6",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"bookings",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/"
+		}
+	]
+}
