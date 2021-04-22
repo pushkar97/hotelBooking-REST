@@ -12,6 +12,8 @@ All queries are embeded in the application itself and schema initialization is a
 
 Please find included postman collection for endpoint info.
 
+3 users are preloaded for demonstation.
+
 Implements crud operation for hotel, searching hotel on various criterion like rating, location, availability etc.
 
 Allows user to book a hotel.
