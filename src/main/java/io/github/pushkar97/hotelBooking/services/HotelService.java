@@ -7,6 +7,8 @@ import io.github.pushkar97.hotelBooking.models.Hotel;
 import io.github.pushkar97.hotelBooking.models.SortType;
 import io.github.pushkar97.hotelBooking.repositories.HotelRepository;
 import lombok.var;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
@@ -26,16 +28,16 @@ public class HotelService {
 
     private final UserService userService;
 
-    private final HotelSearchSpecification hotelSearchSpecification;
+    @Lazy
+    @Autowired
+    private HotelSearchSpecification hotelSearchSpecification;
 
     HotelService(HotelRepository hotelRepository,
                  AddressService addressService,
-                 UserService userService,
-                 HotelSearchSpecification hotelSearchSpecification){
+                 UserService userService){
         this.hotelRepository = hotelRepository;
         this.addressService = addressService;
         this.userService = userService;
-        this.hotelSearchSpecification = hotelSearchSpecification;
     }
 
     public Page<Hotel> all(Pageable pageable
