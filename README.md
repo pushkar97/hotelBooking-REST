@@ -2,9 +2,9 @@
 Hotel booking rest service
 
 Specifications
-  jdk: 1.8
-  framework: Spring boot 2.4.5
-  database: H2
+jdk: 1.8
+framework: Spring boot 2.4.5
+database: H2
   
 This rest api follows rest conventions and supports HATEOS.
 This api is secured with JWT bearer token authentication mechanism.
