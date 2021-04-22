@@ -1,7 +1,7 @@
 # hotelBooking-REST
 Hotel booking rest service
 
-Specifications:
+Specifications
   jdk: 1.8
   framework: Spring boot 2.4.5
   database: H2
